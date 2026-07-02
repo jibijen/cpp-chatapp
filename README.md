@@ -68,8 +68,6 @@ After connecting, use these commands:
 5. Use `/history` to view recent room messages
 6. Use `/search hello` to find messages containing `hello`
 
-## Tips
-- Keep the server running while clients are connected.
 - Use the same port on all clients.
 - Use `/help` in the client anytime for the full command list.
 
