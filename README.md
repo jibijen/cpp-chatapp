@@ -1,70 +1,52 @@
-# Chat Application in C++ (Winsock)
+# Simple C++ Chat App (Winsock)
 
-[![C++](https://img.shields.io/badge/Language-C++-blue.svg)](https://isocpp.org/)
+A lightweight Windows chat app built with **C++** and **Winsock2**. This repository contains a server and a client that communicate over TCP, support multiple chat rooms, private messages, undo/redo, and message search.
 
-A Windows-based chat application implemented in **C++** using **Winsock2**. This project supports:
-- multi-room chat
-- private messaging
-- undo/redo on sent messages
-- searchable room history
-- multithreaded handling of multiple clients
+## What This Project Does
+- Creates a TCP chat server using Winsock
+- Allows multiple clients to connect concurrently
+- Supports chat rooms and private messaging
+- Keeps recent message history for each room
+- Lets users undo and redo their last message
+- Provides search inside room history
 
----
-
-## Features
-- **Multi-room chat**: Join existing rooms or create new rooms dynamically
-- **Private messaging**: Send direct messages between users
-- **Undo / Redo**: Undo your last message and restore it if needed
-- **Message history**: View recent messages inside the current room
-- **Search**: Search room history for keywords
-- **Help menu**: Built-in command list for client usage
-- **Clean exit**: `/quit` closes the client gracefully
-
----
-
-## Project Structure
-- `main_client.cpp` — client application source
-- `main_server.cpp` — server application source
+## Files Included
+- `main_server.cpp` — chat server logic and room/message handling
+- `main_client.cpp` — interactive chat client
 - `README.md` — this documentation
 
----
-
 ## Requirements
-- Windows 10 / 11
+- Windows OS
 - C++ compiler with C++17 support
 - Winsock2 library (`-lws2_32`)
+- Optional: MinGW or Visual Studio command prompt
 
----
+## Build Instructions
+Open a command prompt in the project folder and run:
 
-## Build & Run
-
-### Compile the server
+Compile the server:
 ```bash
 g++ main_server.cpp -o server -lws2_32
 ```
 
-### Compile the client
+Compile the client:
 ```bash
 g++ main_client.cpp -o client -lws2_32
 ```
 
-### Run the server
+## Run the App
+1. Start the server:
 ```bash
 server
 ```
-
-### Run the client
+2. Start one or more clients:
 ```bash
 client
 ```
+3. Enter your username and server details when prompted.
 
-When the client starts, enter your username, the server hostname or IP (for example `127.0.0.1`), and the server port (for example `8080`).
-
----
-
-## Client Commands
-
-Use these commands inside the client after connecting to the server:
+## Client Usage
+After connecting, use these commands:
 
 ```text
 /join <room>           - Join or create a chat room
@@ -72,21 +54,25 @@ Use these commands inside the client after connecting to the server:
 /reply <user> <msg>    - Reply to a user in the current room
 /undo                  - Undo your last message
 /redo                  - Redo your last undone message
-/history               - Display message history for the current room
-/search <keyword>      - Search room messages for a keyword
-/quit                  - Disconnect from the chat server
-/help                  - Display this help menu
+/history               - Show recent messages in the current room
+/search <keyword>      - Search messages in the current room
+/quit                  - Leave the chat and exit
+/help                  - Display the help menu
 ```
 
----
+## Example Workflow
+1. Run `server`
+2. Open a second prompt and run `client`
+3. Join a room: `/join lobby`
+4. Send a message by typing normally
+5. Use `/history` to view recent room messages
+6. Use `/search hello` to find messages containing `hello`
 
-## Notes
-- The server and client are designed for local Windows development and testing.
-- Make sure the server is running before you connect with a client.
-- If you use MinGW, install a compiler that supports Winsock and C++17.
+## Tips
+- Keep the server running while clients are connected.
+- Use the same port on all clients.
+- Use `/help` in the client anytime for the full command list.
 
----
-
-## No Original Author Name
-This README is updated to remove any original author credit and focus on how to build and use the application.
+## Cleanup Note
+This README has been rewritten to remove any original author metadata and give a clean, easy-to-follow guide for this project.
 
