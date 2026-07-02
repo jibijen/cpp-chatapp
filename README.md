@@ -71,6 +71,5 @@ After connecting, use these commands:
 - Use the same port on all clients.
 - Use `/help` in the client anytime for the full command list.
 
-## Cleanup Note
-This README has been rewritten to remove any original author metadata and give a clean, easy-to-follow guide for this project.
+
 
